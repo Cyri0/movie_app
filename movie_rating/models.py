@@ -12,3 +12,8 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.title
+
+class Rating(models.Model):
+    choices = [ (1,1), (2,2), (3,3), (4,4), (5,5) ]
+    value = models.IntegerField(choices=choices)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
